@@ -19,7 +19,6 @@
 		3042D0BC1BBB4A0C0038AA42 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */; };
 		3042D0BE1BBB4A0C0038AA42 /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8B516D35DE700DB1158 /* MainMenu.cpp */; };
 		3042D0C11BBB4A0C0038AA42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303CF82B1A1CE213008EFEF8 /* UIKit.framework */; };
-		3042D0C21BBB4A0C0038AA42 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303CF8291A1CE202008EFEF8 /* CoreMotion.framework */; };
 		3042D0C31BBB4A0C0038AA42 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303CF8271A1CE1F4008EFEF8 /* OpenGLES.framework */; };
 		3042D0C41BBB4A0C0038AA42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		3042D0C51BBB4A0C0038AA42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
@@ -210,7 +209,6 @@
 				3042D1051BBB4DD90038AA42 /* libiconv.tbd in Frameworks */,
 				3042D1031BBB4DB40038AA42 /* libcocos2d tvOS.a in Frameworks */,
 				3042D0C11BBB4A0C0038AA42 /* UIKit.framework in Frameworks */,
-				3042D0C21BBB4A0C0038AA42 /* CoreMotion.framework in Frameworks */,
 				3042D0C31BBB4A0C0038AA42 /* OpenGLES.framework in Frameworks */,
 				3042D0C41BBB4A0C0038AA42 /* Foundation.framework in Frameworks */,
 				3042D0C51BBB4A0C0038AA42 /* CoreGraphics.framework in Frameworks */,
@@ -678,7 +676,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
-				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -714,7 +711,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
-				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = tvos/Prefix.pch;

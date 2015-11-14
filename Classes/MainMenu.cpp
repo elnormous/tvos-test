@@ -148,15 +148,15 @@ void MainMenu::onDisconnectedController(cocos2d::Controller* controller, cocos2d
 
 void MainMenu::onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Event* event)
 {
-    
+    log("key down: %d", key);
 }
 
 void MainMenu::onKeyUp(cocos2d::Controller* controller, int key, cocos2d::Event* event)
 {
-    
+    log("key up: %d", key);
 }
 
 void MainMenu::onAxisEvent(cocos2d::Controller* controller, int axis, cocos2d::Event* event)
 {
-    
+    log("axis event: %d", axis);
 }
