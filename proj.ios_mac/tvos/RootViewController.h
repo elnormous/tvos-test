@@ -24,11 +24,9 @@
  ****************************************************************************/
 
 #import <UIKit/UIKit.h>
-#import <GameController/GameController.h>
 
-@interface RootViewController : GCEventViewController {
-	//GADBannerView* bannerView;
+@interface RootViewController : UIViewController {
+
 }
-- (BOOL) prefersStatusBarHidden;
 
 @end

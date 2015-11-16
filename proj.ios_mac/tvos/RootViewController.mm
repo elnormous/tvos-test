@@ -99,12 +99,6 @@
     }
 }
 
-//fix not hide status on ios7
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
-}
-
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -126,5 +120,14 @@
     [super dealloc];
 }
 
+-(void)pressesBegan:(NSSet*)presses withEvent:(UIPressesEvent *)event {
+    // comment this if you don't want menu button to close the app
+    return [super pressesBegan:presses withEvent:event];
+}
+
+-(void)pressesEnded:(NSSet*)presses withEvent:(UIPressesEvent *)event {
+    // comment this if you don't want menu button to close the app
+    return [super pressesEnded:presses withEvent:event];
+}
 
 @end

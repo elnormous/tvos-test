@@ -27,7 +27,7 @@
 
 
 @interface RootViewController : UIViewController {
-	//GADBannerView* bannerView;
+
 }
 - (BOOL) prefersStatusBarHidden;
 

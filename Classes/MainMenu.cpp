@@ -92,16 +92,7 @@ bool MainMenu::init()
 
 void MainMenu::update(float delta)
 {
-    if (_controller)
-    {
-        for (int i = cocos2d::Controller::JOYSTICK_LEFT_X; i < cocos2d::Controller::KEY_MAX; ++i)
-        {
-            if (_controller->getKeyStatus(i).isPressed)
-            {
-                log("Key %i down", i);
-            }
-        }
-    }
+
 }
 
 void MainMenu::menuPlayCallback(Ref* pSender)
