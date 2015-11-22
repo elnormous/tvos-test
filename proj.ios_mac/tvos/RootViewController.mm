@@ -121,13 +121,25 @@
 }
 
 -(void)pressesBegan:(NSSet*)presses withEvent:(UIPressesEvent *)event {
-    // comment this if you don't want menu button to close the app
-    return [super pressesBegan:presses withEvent:event];
+    
+    UIPress* p = [presses anyObject];
+    
+    if (p.type == UIPressTypeMenu)
+    {
+        // comment this if you don't want menu button to close the app
+        [super pressesBegan:presses withEvent:event];
+    }
 }
 
 -(void)pressesEnded:(NSSet*)presses withEvent:(UIPressesEvent *)event {
-    // comment this if you don't want menu button to close the app
-    return [super pressesEnded:presses withEvent:event];
+    
+    UIPress* p = [presses anyObject];
+    
+    if (p.type == UIPressTypeMenu)
+    {
+        // comment this if you don't want menu button to close the app
+        [super pressesEnded:presses withEvent:event];
+    }
 }
 
 @end
