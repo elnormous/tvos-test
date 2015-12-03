@@ -65,40 +65,6 @@
 	[bannerView loadRequest:[GADRequest request]];*/
 }
 
-// Override to allow orientations other than the default portrait orientation.
-// This method is deprecated on ios6
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return UIInterfaceOrientationIsLandscape( interfaceOrientation );
-}
-
-// For ios6, use supportedInterfaceOrientations & shouldAutorotate instead
-- (NSUInteger) supportedInterfaceOrientations{
-#ifdef __IPHONE_6_0
-    return UIInterfaceOrientationMaskAllButUpsideDown;
-#endif
-}
-
-- (BOOL) shouldAutorotate {
-    return YES;
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-
-    cocos2d::GLView *glview = cocos2d::Director::getInstance()->getOpenGLView();
-
-    if (glview)
-    {
-        CCEAGLView *eaglview = (CCEAGLView*) glview->getEAGLView();
-
-        if (eaglview)
-        {
-            CGSize s = CGSizeMake([eaglview getWidth], [eaglview getHeight]);
-            cocos2d::Application::getInstance()->applicationScreenSizeChanged((int) s.width, (int) s.height);
-        }
-    }
-}
-
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
