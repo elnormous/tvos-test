@@ -26,6 +26,7 @@ public:
     
     void onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Event* event);
     void onKeyUp(cocos2d::Controller* controller, int key, cocos2d::Event* event);
+    void onKeyRepeat(cocos2d::Controller* controller, int key, cocos2d::Event* event);
     
     void onAxisEvent(cocos2d::Controller* controller, int axis, cocos2d::Event* event);
     

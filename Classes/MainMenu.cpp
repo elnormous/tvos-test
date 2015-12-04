@@ -72,6 +72,7 @@ bool MainMenu::init()
     _controllerListener->onKeyDown = CC_CALLBACK_3(MainMenu::onKeyDown, this);
     _controllerListener->onKeyUp = CC_CALLBACK_3(MainMenu::onKeyUp, this);
     _controllerListener->onAxisEvent = CC_CALLBACK_3(MainMenu::onAxisEvent, this);
+    _controllerListener->onKeyRepeat = CC_CALLBACK_3(MainMenu::onKeyRepeat, this);
     
     _eventDispatcher->addEventListenerWithSceneGraphPriority(_controllerListener, this);
     
@@ -113,7 +114,7 @@ void MainMenu::handleTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event)
 {
     Vec2 location = convertToNodeSpace(touch->getLocation());
     
-    log("touch moved: %f, %f", location.x, location.y);
+    //log("touch moved: %f, %f", location.x, location.y);
 }
 
 void MainMenu::handleTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
@@ -139,7 +140,24 @@ void MainMenu::onDisconnectedController(cocos2d::Controller* controller, cocos2d
 
 void MainMenu::onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Event* event)
 {
-    log("key down: %d", key);
+    log("key down: %d, float value: %f", key, controller->getKeyStatus(key).value);
+    
+    if (key == cocos2d::Controller::BUTTON_DPAD_UP)
+    {
+        log("up");
+    }
+    else if (key == cocos2d::Controller::BUTTON_DPAD_DOWN)
+    {
+        log("down");
+    }
+    else if (key == cocos2d::Controller::BUTTON_DPAD_LEFT)
+    {
+        log("left");
+    }
+    else if (key == cocos2d::Controller::BUTTON_DPAD_RIGHT)
+    {
+        log("right");
+    }
 }
 
 void MainMenu::onKeyUp(cocos2d::Controller* controller, int key, cocos2d::Event* event)
@@ -150,4 +168,9 @@ void MainMenu::onKeyUp(cocos2d::Controller* controller, int key, cocos2d::Event*
 void MainMenu::onAxisEvent(cocos2d::Controller* controller, int axis, cocos2d::Event* event)
 {
     log("axis event: %d", axis);
+}
+
+void MainMenu::onKeyRepeat(cocos2d::Controller* controller, int key, cocos2d::Event* event)
+{
+    log("key repeat: %d", key);
 }
