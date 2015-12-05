@@ -11,4 +11,8 @@
 	#include <cocos2d.h>
 	#include <vector>
 	#include <map>
+
+
+    #include <base/CCGameController.h>
+    #include <base/CCEventListenerController.h>
 #endif

@@ -1,5 +1,6 @@
 #include "MainMenu.h"
 #include "CCCirculate.h"
+#include "Game.h"
 
 USING_NS_CC;
 
@@ -47,8 +48,9 @@ bool MainMenu::init()
     addChild(obstacle2);
     
     //Controller* c = nullptr;
+#if defined(CC_TARGET_OS_IPHONE) || defined(CC_TARGET_OS_APPLETV)
     Controller::startDiscoveryController();
-    
+#endif
     
     /*Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -140,23 +142,13 @@ void MainMenu::onDisconnectedController(cocos2d::Controller* controller, cocos2d
 
 void MainMenu::onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Event* event)
 {
+#if defined(CC_TARGET_OS_IPHONE) || defined(CC_TARGET_OS_APPLETV)
     log("key down: %d, float value: %f", key, controller->getKeyStatus(key).value);
+#endif
     
-    if (key == cocos2d::Controller::BUTTON_DPAD_UP)
+    if (key == cocos2d::Controller::BUTTON_X)
     {
-        log("up");
-    }
-    else if (key == cocos2d::Controller::BUTTON_DPAD_DOWN)
-    {
-        log("down");
-    }
-    else if (key == cocos2d::Controller::BUTTON_DPAD_LEFT)
-    {
-        log("left");
-    }
-    else if (key == cocos2d::Controller::BUTTON_DPAD_RIGHT)
-    {
-        log("right");
+        Director::getInstance()->replaceScene(Game::create());
     }
 }
 

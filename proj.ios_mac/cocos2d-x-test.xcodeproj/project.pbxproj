@@ -53,6 +53,10 @@
 		3042D1071BBB50180038AA42 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3042D1061BBB50180038AA42 /* GameController.framework */; };
 		306A6339196CA4E000582014 /* obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = 306A6337196CA4E000582014 /* obstacle.png */; };
 		306A633A196CA4E000582014 /* obstacle.png in Resources */ = {isa = PBXBuildFile; fileRef = 306A6337196CA4E000582014 /* obstacle.png */; };
+		30703D381C138B2F003FBB53 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30703D361C138B2F003FBB53 /* Game.cpp */; };
+		30703D391C138B2F003FBB53 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30703D361C138B2F003FBB53 /* Game.cpp */; };
+		30703D3A1C138B2F003FBB53 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30703D361C138B2F003FBB53 /* Game.cpp */; };
+		30703D3C1C138CF7003FBB53 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30703D3B1C138CF7003FBB53 /* Carbon.framework */; };
 		30DC9CBD1A30BB4B0033734D /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DC9CBC1A30BB4B0033734D /* libcocos2d Mac.a */; };
 		30DC9CBF1A30BB5D0033734D /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DC9CBE1A30BB5D0033734D /* libcocos2d iOS.a */; };
 		30E2F75B1B90D76700B843ED /* CCCirculate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30E2F7591B90D76700B843ED /* CCCirculate.cpp */; };
@@ -139,6 +143,9 @@
 		3042D1041BBB4DD90038AA42 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/usr/lib/libiconv.tbd; sourceTree = DEVELOPER_DIR; };
 		3042D1061BBB50180038AA42 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		306A6337196CA4E000582014 /* obstacle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obstacle.png; sourceTree = "<group>"; };
+		30703D361C138B2F003FBB53 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = ../Classes/Game.cpp; sourceTree = "<group>"; };
+		30703D371C138B2F003FBB53 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Classes/Game.h; sourceTree = "<group>"; };
+		30703D3B1C138CF7003FBB53 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		30DC9CBC1A30BB4B0033734D /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../Libraries/cocos2d-x-3.3rc0/build/build/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		30DC9CBE1A30BB5D0033734D /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../../../Libraries/cocos2d-x-3.3rc0/build/build/libcocos2d iOS.a"; sourceTree = "<group>"; };
 		30E2F7591B90D76700B843ED /* CCCirculate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCCirculate.cpp; sourceTree = "<group>"; };
@@ -224,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30703D3C1C138CF7003FBB53 /* Carbon.framework in Frameworks */,
 				3042D0D41BBB4C070038AA42 /* libiconv.tbd in Frameworks */,
 				30DC9CBD1A30BB4B0033734D /* libcocos2d Mac.a in Frameworks */,
 				5087E76717EB910900C73F5D /* libz.dylib in Frameworks */,
@@ -267,6 +275,8 @@
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* MainMenu.cpp */,
 				1AFAF8B616D35DE700DB1158 /* MainMenu.h */,
+				30703D361C138B2F003FBB53 /* Game.cpp */,
+				30703D371C138B2F003FBB53 /* Game.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -299,6 +309,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30703D3B1C138CF7003FBB53 /* Carbon.framework */,
 				3042D1061BBB50180038AA42 /* GameController.framework */,
 				3042D1041BBB4DD90038AA42 /* libiconv.tbd */,
 				3042D1021BBB4DB40038AA42 /* libcocos2d tvOS.a */,
@@ -576,6 +587,7 @@
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* MainMenu.cpp in Sources */,
+				30703D381C138B2F003FBB53 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +601,7 @@
 				3042D0BC1BBB4A0C0038AA42 /* AppDelegate.cpp in Sources */,
 				3042D0FF1BBB4C680038AA42 /* main.m in Sources */,
 				3042D0BE1BBB4A0C0038AA42 /* MainMenu.cpp in Sources */,
+				30703D3A1C138B2F003FBB53 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +613,7 @@
 				5087E75817EB910900C73F5D /* MainMenu.cpp in Sources */,
 				30E2F75C1B90D76700B843ED /* CCCirculate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				30703D391C138B2F003FBB53 /* Game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
