@@ -47,25 +47,9 @@ bool MainMenu::init()
     obstacle2->runAction(Circulate::create(5, Point(400, 400), false));
     addChild(obstacle2);
     
-    //Controller* c = nullptr;
 #if defined(CC_TARGET_OS_IPHONE) || defined(CC_TARGET_OS_APPLETV)
     Controller::startDiscoveryController();
 #endif
-    
-    /*Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-    auto closeItem = MenuItemImage::create(
-                                           "HelloWorld.png",
-                                           "HelloWorld.png",
-                                           CC_CALLBACK_1(MainMenu::menuPlayCallback, this));
-    
-	closeItem->setPosition(Vec2(origin.x + visibleSize.width/2 ,
-                                origin.y + visibleSize.height/2));
-
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);*/
     
     _controllerListener = EventListenerController::create();
     

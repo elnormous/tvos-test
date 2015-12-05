@@ -41,6 +41,10 @@ bool Game::init()
 		return false;
 	}
     
+#if defined(CC_TARGET_OS_IPHONE) || defined(CC_TARGET_OS_APPLETV)
+    Controller::startDiscoveryController();
+#endif
+    
     _controllerListener = EventListenerController::create();
     _controllerListener->onKeyDown = CC_CALLBACK_3(Game::onKeyDown, this);
     _eventDispatcher->addEventListenerWithSceneGraphPriority(_controllerListener, this);
