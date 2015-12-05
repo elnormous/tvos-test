@@ -17,6 +17,15 @@ public:
     
     virtual void update(float delta) override;
 
+CC_CONSTRUCTOR_ACCESS:
+    MainMenu();
+    virtual ~MainMenu();
+    
+private:
+	DISALLOW_COPY_AND_ASSIGN(MainMenu);
+	
+    void onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event) override;
+    
     bool handleTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void handleTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
     void handleTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
@@ -30,11 +39,7 @@ public:
     
     void onAxisEvent(cocos2d::Controller* controller, int axis, cocos2d::Event* event);
     
-private:
-	DISALLOW_COPY_AND_ASSIGN(MainMenu);
-	MainMenu();
-    virtual ~MainMenu();
-    
+    cocos2d::EventListenerKeyboard* _keybListener = nullptr;
     cocos2d::EventListener* _touchListener = nullptr;
     cocos2d::EventListenerController* _controllerListener = nullptr;
     

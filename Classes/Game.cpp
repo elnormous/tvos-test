@@ -31,6 +31,7 @@ Game::Game()
 
 Game::~Game()
 {
+    _eventDispatcher->removeEventListener(_touchListener);
     _eventDispatcher->removeEventListener(_controllerListener);
 }
 
@@ -40,6 +41,10 @@ bool Game::init()
 	{
 		return false;
 	}
+    
+    _touchListener = EventListenerTouchOneByOne::create();
+    _touchListener->onTouchBegan = CC_CALLBACK_2(Game::onTouchBegan, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(_touchListener, this);
     
 #if defined(CC_TARGET_OS_IPHONE) || defined(CC_TARGET_OS_APPLETV)
     Controller::startDiscoveryController();
@@ -54,6 +59,15 @@ bool Game::init()
 
 void Game::update(float delta)
 {
+}
+
+bool Game::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
+{
+    Vec2 location = convertToNodeSpace(touch->getLocation());
+    
+    log("touch begin: %f, %f", location.x, location.y);
+    
+    return true;
 }
 
 void Game::onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Event* event)

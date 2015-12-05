@@ -26,8 +26,9 @@ MainMenu::MainMenu()
 
 MainMenu::~MainMenu()
 {
-    _eventDispatcher->removeEventListener(_touchListener);
-    _eventDispatcher->removeEventListener(_controllerListener);
+    if (_keybListener) _eventDispatcher->removeEventListener(_keybListener);
+    if (_touchListener) _eventDispatcher->removeEventListener(_touchListener);
+    if (_controllerListener) _eventDispatcher->removeEventListener(_controllerListener);
 }
 
 bool MainMenu::init()
@@ -46,6 +47,11 @@ bool MainMenu::init()
     obstacle2->setPosition(Point(400, 300));
     obstacle2->runAction(Circulate::create(5, Point(400, 400), false));
     addChild(obstacle2);
+    
+    _keybListener = EventListenerKeyboard::create();
+    _keybListener->onKeyPressed = CC_CALLBACK_2(MainMenu::onKeyPressed, this);
+    
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(_keybListener, this);
     
 #if defined(CC_TARGET_OS_IPHONE) || defined(CC_TARGET_OS_APPLETV)
     Controller::startDiscoveryController();
@@ -85,6 +91,11 @@ void MainMenu::update(float delta)
 void MainMenu::menuPlayCallback(Ref* pSender)
 {
     
+}
+
+void MainMenu::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event)
+{
+    log("key pressed: %d", keyCode);
 }
 
 bool MainMenu::handleTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)

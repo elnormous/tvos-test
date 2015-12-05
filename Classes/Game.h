@@ -24,7 +24,9 @@ CC_CONSTRUCTOR_ACCESS:
 private:
 	CC_DISALLOW_COPY_AND_ASSIGN(Game);
     
+    bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Event* event);
     
+    cocos2d::EventListenerTouchOneByOne* _touchListener = nullptr;
     cocos2d::EventListenerController* _controllerListener = nullptr;
 };
