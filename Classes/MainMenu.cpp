@@ -1,23 +1,7 @@
 #include "MainMenu.h"
-#include "CCCirculate.h"
 #include "Game.h"
 
 USING_NS_CC;
-
-Scene* MainMenu::createScene()
-{
-    // 'scene' is an autorelease object
-    auto scene = Scene::create();
-    
-    // 'layer' is an autorelease object
-    auto layer = MainMenu::create();
-
-    // add layer as a child to scene
-    scene->addChild(layer);
-
-    // return the scene
-    return scene;
-}
 
 MainMenu::MainMenu()
 {
@@ -33,33 +17,31 @@ MainMenu::~MainMenu()
 
 bool MainMenu::init()
 {
-    if ( !Layer::init() )
+    if (!Scene::init())
     {
         return false;
     }
     
-    Sprite* obstacle = Sprite::create("obstacle.png");
-    obstacle->setPosition(Point(300, 300));
-    obstacle->setColor(Color3B(255, 0, 0));
-    addChild(obstacle);
+    _tag = 1;
     
-    Sprite* obstacle2 = Sprite::create("obstacle.png");
-    obstacle2->setPosition(Point(400, 300));
-    obstacle2->setColor(Color3B(0, 255, 0));
-    obstacle2->runAction(Circulate::create(5, Point(400, 400), false));
-    addChild(obstacle2);
+    auto menu = Menu::create();
+    this->addChild(menu);
     
-    Sprite* normalSprite = Sprite::create("obstacle.png");
-    normalSprite->setColor(Color3B(0, 0, 255));
-    Sprite* selectedSprite = Sprite::create("obstacle.png");
-    selectedSprite->setColor(Color3B(0, 0, 128));
+    for (int i = 0; i < 9; ++i)
+    {
+        Sprite* normalSprite = Sprite::create("obstacle.png");
+        normalSprite->setColor(Color3B(0, 0, 255));
+        Sprite* selectedSprite = Sprite::create("obstacle.png");
+        selectedSprite->setColor(Color3B(0, 0, 128));
+        
+        auto item = MenuItemSprite::create(normalSprite,
+                                               selectedSprite,
+                                               CC_CALLBACK_1(MainMenu::menuPlayCallback, this));
+        
+        menu->addChild(item);
+    }
     
-    auto playItem = MenuItemSprite::create(normalSprite,
-                                           selectedSprite,
-                                           CC_CALLBACK_1(MainMenu::menuPlayCallback, this));
-    
-    auto menu = Menu::create(playItem, NULL);
-    this->addChild(menu, 1);
+    menu->alignItemsInColumns(3, 3, 3, nullptr);
     
     _keybListener = EventListenerKeyboard::create();
     _keybListener->onKeyPressed = CC_CALLBACK_2(MainMenu::onKeyPressed, this);
@@ -136,22 +118,23 @@ void MainMenu::handleTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 
 void MainMenu::onConnectController(cocos2d::Controller* controller, cocos2d::Event* event)
 {
-    _controller = controller;
     log("Controller connected %s", controller->getDeviceName().c_str());
 }
 
 void MainMenu::onDisconnectedController(cocos2d::Controller* controller, cocos2d::Event* event)
 {
-    if (controller == _controller)
-    {
-        _controller = nullptr;
-    }
 }
 
 void MainMenu::onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Event* event)
 {
 #if defined(CC_TARGET_OS_IPHONE) || defined(CC_TARGET_OS_APPLETV)
     log("key down: %d, float value: %f", key, controller->getKeyStatus(key).value);
+    
+    if (key == Controller::BUTTON_X)
+    {
+        Director::getInstance()->replaceScene(Game::create());
+    }
+    
 #endif
 }
 

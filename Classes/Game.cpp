@@ -7,6 +7,7 @@
 //
 
 #include "Game.h"
+#include "CCCirculate.h"
 
 USING_NS_CC;
 
@@ -41,6 +42,19 @@ bool Game::init()
 	{
 		return false;
 	}
+    
+    _tag = 2;
+    
+    Sprite* obstacle = Sprite::create("obstacle.png");
+    obstacle->setPosition(Point(300, 300));
+    obstacle->setColor(Color3B(255, 0, 0));
+    addChild(obstacle);
+    
+    Sprite* obstacle2 = Sprite::create("obstacle.png");
+    obstacle2->setPosition(Point(400, 300));
+    obstacle2->setColor(Color3B(0, 255, 0));
+    obstacle2->runAction(Circulate::create(5, Point(400, 400), false));
+    addChild(obstacle2);
     
     _touchListener = EventListenerTouchOneByOne::create();
     _touchListener->onTouchBegan = CC_CALLBACK_2(Game::onTouchBegan, this);

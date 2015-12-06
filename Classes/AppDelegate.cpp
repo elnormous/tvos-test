@@ -29,7 +29,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60.0f);
 
     // create a scene. it's an autorelease object
-    auto scene = MainMenu::createScene();
+    auto scene = MainMenu::create();
 
     // run
     director->runWithScene(scene);
