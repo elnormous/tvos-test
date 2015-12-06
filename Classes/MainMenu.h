@@ -10,7 +10,7 @@ public:
     virtual bool init() override;
     
     // a selector callback
-    void menuPlayCallback(cocos2d::Ref* pSender);
+    void menuPlayCallback(cocos2d::Ref* sender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(MainMenu);

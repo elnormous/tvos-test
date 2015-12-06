@@ -67,7 +67,7 @@ bool Game::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
     
     log("touch begin: %f, %f", location.x, location.y);
     
-    return true;
+    return false;
 }
 
 void Game::onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Event* event)

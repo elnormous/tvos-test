@@ -45,8 +45,21 @@ bool MainMenu::init()
     
     Sprite* obstacle2 = Sprite::create("obstacle.png");
     obstacle2->setPosition(Point(400, 300));
+    obstacle2->setColor(Color3B(0, 255, 0));
     obstacle2->runAction(Circulate::create(5, Point(400, 400), false));
     addChild(obstacle2);
+    
+    Sprite* normalSprite = Sprite::create("obstacle.png");
+    normalSprite->setColor(Color3B(0, 0, 255));
+    Sprite* selectedSprite = Sprite::create("obstacle.png");
+    selectedSprite->setColor(Color3B(0, 0, 128));
+    
+    auto playItem = MenuItemSprite::create(normalSprite,
+                                           selectedSprite,
+                                           CC_CALLBACK_1(MainMenu::menuPlayCallback, this));
+    
+    auto menu = Menu::create(playItem, NULL);
+    this->addChild(menu, 1);
     
     _keybListener = EventListenerKeyboard::create();
     _keybListener->onKeyPressed = CC_CALLBACK_2(MainMenu::onKeyPressed, this);
@@ -88,9 +101,9 @@ void MainMenu::update(float delta)
 
 }
 
-void MainMenu::menuPlayCallback(Ref* pSender)
+void MainMenu::menuPlayCallback(Ref* sender)
 {
-    
+    Director::getInstance()->replaceScene(Game::create());
 }
 
 void MainMenu::onKeyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event* event)
@@ -140,11 +153,6 @@ void MainMenu::onKeyDown(cocos2d::Controller* controller, int key, cocos2d::Even
 #if defined(CC_TARGET_OS_IPHONE) || defined(CC_TARGET_OS_APPLETV)
     log("key down: %d, float value: %f", key, controller->getKeyStatus(key).value);
 #endif
-    
-    if (key == cocos2d::Controller::BUTTON_X)
-    {
-        Director::getInstance()->replaceScene(Game::create());
-    }
 }
 
 void MainMenu::onKeyUp(cocos2d::Controller* controller, int key, cocos2d::Event* event)
