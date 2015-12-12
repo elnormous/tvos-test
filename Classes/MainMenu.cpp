@@ -13,6 +13,7 @@ MainMenu::~MainMenu()
     if (_keybListener) _eventDispatcher->removeEventListener(_keybListener);
     if (_touchListener) _eventDispatcher->removeEventListener(_touchListener);
     if (_controllerListener) _eventDispatcher->removeEventListener(_controllerListener);
+    if (_mouseListener) _eventDispatcher->removeEventListener(_mouseListener);
 }
 
 bool MainMenu::init()
@@ -72,6 +73,13 @@ bool MainMenu::init()
     
     _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
     _touchListener = listener;
+    
+    _mouseListener = EventListenerMouse::create();
+    _mouseListener->onMouseDown = CC_CALLBACK_1(MainMenu::onMouseDown, this);
+    _mouseListener->onMouseUp = CC_CALLBACK_1(MainMenu::onMouseUp, this);
+    _mouseListener->onMouseMove = CC_CALLBACK_1(MainMenu::onMouseMove, this);
+    _mouseListener->onMouseScroll = CC_CALLBACK_1(MainMenu::onMouseScroll, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(_mouseListener, this);
     
     scheduleUpdate();
     
@@ -151,4 +159,24 @@ void MainMenu::onAxisEvent(cocos2d::Controller* controller, int axis, cocos2d::E
 void MainMenu::onKeyRepeat(cocos2d::Controller* controller, int key, cocos2d::Event* event)
 {
     log("key repeat: %d", key);
+}
+
+void MainMenu::onMouseDown(cocos2d::EventMouse* event)
+{
+    log("Mouse down: %d", event->getMouseButton());
+}
+
+void MainMenu::onMouseUp(cocos2d::EventMouse* event)
+{
+    log("Mouse up: %d", event->getMouseButton());
+}
+
+void MainMenu::onMouseMove(cocos2d::EventMouse* event)
+{
+    log("Mouse move: %d", event->getMouseButton());
+}
+
+void MainMenu::onMouseScroll(cocos2d::EventMouse* event)
+{
+    log("Mouse scroll: %f, %f", event->getDelta().x, event->getDelta().y);
 }

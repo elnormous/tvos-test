@@ -37,7 +37,13 @@ private:
     
     void onAxisEvent(cocos2d::Controller* controller, int axis, cocos2d::Event* event);
     
+    void onMouseDown(cocos2d::EventMouse* event);
+    void onMouseUp(cocos2d::EventMouse* event);
+    void onMouseMove(cocos2d::EventMouse* event);
+    void onMouseScroll(cocos2d::EventMouse* event);
+    
     cocos2d::EventListenerKeyboard* _keybListener = nullptr;
     cocos2d::EventListener* _touchListener = nullptr;
     cocos2d::EventListenerController* _controllerListener = nullptr;
+    cocos2d::EventListenerMouse* _mouseListener = nullptr;
 };

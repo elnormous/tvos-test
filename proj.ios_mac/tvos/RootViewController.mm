@@ -26,6 +26,7 @@
 #import "RootViewController.h"
 #import "cocos2d.h"
 #import "CCEAGLView-tvos.h"
+#include "MainMenu.h"
 
 @implementation RootViewController
 
@@ -86,26 +87,29 @@
     [super dealloc];
 }
 
--(void)pressesBegan:(NSSet*)presses withEvent:(UIPressesEvent *)event {
-    
+-(void)pressesBegan:(NSSet*)presses withEvent:(UIPressesEvent *)event
+{
     UIPress* p = [presses anyObject];
     
     if (p.type == UIPressTypeMenu)
     {
-        // comment this if you don't want menu button to close the app
-        [super pressesBegan:presses withEvent:event];
+        cocos2d::Scene* scene = cocos2d::Director::getInstance()->getRunningScene();
+        
+        if (scene && scene->getTag() == 2)
+        {
+            cocos2d::Director::getInstance()->replaceScene(MainMenu::create());
+        }
+        else
+        {
+            // comment this if you don't want menu button to close the app
+            [super pressesBegan:presses withEvent:event];
+        }
     }
 }
 
--(void)pressesEnded:(NSSet*)presses withEvent:(UIPressesEvent *)event {
-    
-    UIPress* p = [presses anyObject];
-    
-    if (p.type == UIPressTypeMenu)
-    {
-        // comment this if you don't want menu button to close the app
-        [super pressesEnded:presses withEvent:event];
-    }
+-(void)pressesEnded:(NSSet*)presses withEvent:(UIPressesEvent *)event
+{
+    // Don't route pressesEnded to parent, because it cause Menu button to be handled twice
 }
 
 @end
