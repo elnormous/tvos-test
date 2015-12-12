@@ -57,6 +57,7 @@
 		30703D391C138B2F003FBB53 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30703D361C138B2F003FBB53 /* Game.cpp */; };
 		30703D3A1C138B2F003FBB53 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30703D361C138B2F003FBB53 /* Game.cpp */; };
 		30703D3C1C138CF7003FBB53 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30703D3B1C138CF7003FBB53 /* Carbon.framework */; };
+		307B60C11C1CD4860036DE6F /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307B60C01C1CD4860036DE6F /* GameController.framework */; };
 		30DC9CBD1A30BB4B0033734D /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DC9CBC1A30BB4B0033734D /* libcocos2d Mac.a */; };
 		30DC9CBF1A30BB5D0033734D /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30DC9CBE1A30BB5D0033734D /* libcocos2d iOS.a */; };
 		30E2F75B1B90D76700B843ED /* CCCirculate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 30E2F7591B90D76700B843ED /* CCCirculate.cpp */; };
@@ -146,6 +147,7 @@
 		30703D361C138B2F003FBB53 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = ../Classes/Game.cpp; sourceTree = "<group>"; };
 		30703D371C138B2F003FBB53 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = ../Classes/Game.h; sourceTree = "<group>"; };
 		30703D3B1C138CF7003FBB53 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		307B60C01C1CD4860036DE6F /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		30DC9CBC1A30BB4B0033734D /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../Libraries/cocos2d-x-3.3rc0/build/build/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		30DC9CBE1A30BB5D0033734D /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../../../Libraries/cocos2d-x-3.3rc0/build/build/libcocos2d iOS.a"; sourceTree = "<group>"; };
 		30E2F7591B90D76700B843ED /* CCCirculate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCCirculate.cpp; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				307B60C11C1CD4860036DE6F /* GameController.framework in Frameworks */,
 				30DC9CBF1A30BB5D0033734D /* libcocos2d iOS.a in Frameworks */,
 				303CF82C1A1CE213008EFEF8 /* UIKit.framework in Frameworks */,
 				303CF82A1A1CE202008EFEF8 /* CoreMotion.framework in Frameworks */,
@@ -309,6 +312,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				307B60C01C1CD4860036DE6F /* GameController.framework */,
 				30703D3B1C138CF7003FBB53 /* Carbon.framework */,
 				3042D1061BBB50180038AA42 /* GameController.framework */,
 				3042D1041BBB4DD90038AA42 /* libiconv.tbd */,
