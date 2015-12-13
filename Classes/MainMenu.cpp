@@ -127,6 +127,8 @@ void MainMenu::handleTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event)
 void MainMenu::onConnectController(cocos2d::Controller* controller, cocos2d::Event* event)
 {
     log("Controller connected %s", controller->getDeviceName().c_str());
+    
+    controller->setAbsoluteDpadValues(true);
 }
 
 void MainMenu::onDisconnectedController(cocos2d::Controller* controller, cocos2d::Event* event)
@@ -159,6 +161,23 @@ void MainMenu::onAxisEvent(cocos2d::Controller* controller, int axis, cocos2d::E
 void MainMenu::onKeyRepeat(cocos2d::Controller* controller, int key, cocos2d::Event* event)
 {
     log("key repeat: %d", key);
+    
+    if (key == cocos2d::Controller::BUTTON_DPAD_LEFT)
+    {
+        log("Left value: %f", controller->getKeyStatus(key).value);
+    }
+    else if (key == cocos2d::Controller::BUTTON_DPAD_RIGHT)
+    {
+        log("Right value: %f", controller->getKeyStatus(key).value);
+    }
+    else if (key == cocos2d::Controller::BUTTON_DPAD_UP)
+    {
+        log("Up value: %f", controller->getKeyStatus(key).value);
+    }
+    else if (key == cocos2d::Controller::BUTTON_DPAD_DOWN)
+    {
+        log("Down value: %f", controller->getKeyStatus(key).value);
+    }
 }
 
 void MainMenu::onMouseDown(cocos2d::EventMouse* event)
